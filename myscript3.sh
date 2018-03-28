@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ["$1" == "Vova"]; then echo "Привіт $1"
+if [ "$1" == "Вова" ]; then echo "Привіт $1"
 elif [ "$1" == "Bob" ]; then echo "Hello $1"
 else echo "Who are you?"
 fi
