@@ -9,9 +9,9 @@ x=$2
 
 echo "Starting CASE selection..."
 case $x in
-<------> 1) echo "This is one";;
+	1) echo "This is one";;
      [2-9]) echo "Two-Nine";;
-    "Петя") echo "Привет";;
-<------> *) echo "Parment Unknov, sorry!"
+    "Петя") echo "Привет $x";;
+	*) echo "Parment Unknov, sorry!"
 esac
 
