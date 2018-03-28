@@ -14,4 +14,8 @@ case $x in
     "Петя") echo "Привет $x";;
 	*) echo "Parment Unknov, sorry!"
 esac
-
+if [ $? -eq 0 ]; then echo "Все ok"
+ # do something
+else echo "Щось не так..."
+ # do something else
+fi
