@@ -2,7 +2,7 @@
 set -e
 echo "Hello this is Message from Script"
 echo "Let's show files in this folders..."
-ls2
+ls
 xterm &
 ls -l
 
