@@ -1,3 +1,3 @@
 # MyScripts
-Test Git's 3
+Test gits & test scripts
 
