@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 mycomputer="Scorpio"
 myOS=`uname -a`
 
