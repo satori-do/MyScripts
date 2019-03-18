@@ -125,11 +125,11 @@ fi
 echo ""
 #-------------------------------------------------------------------------------------------------------------------
 
-echo " #12 'comparison of length strings'"
+echo " #12 'comparison of strings'"
 
 val1=text
 val2="another text"
-if [ ${#val1} -gt "${#val2}" ]
+if [ $val1 \> "$val2" ]
 then
 echo "$val1 is greater than $val2"
 else
@@ -139,3 +139,31 @@ fi
 echo ""
 #-------------------------------------------------------------------------------------------------------------------
 
+echo " #13 'comparison of strings uppercase letter'"
+
+val1=Likegeeks
+val2=likegeeks
+if [ $val1 \> $val2 ]
+then
+echo "$val1 is greater than $val2"
+else
+echo "$val1 is less than $val2"
+fi
+
+echo ""
+#-------------------------------------------------------------------------------------------------------------------
+
+echo " #14 'chacking existing folders'"
+
+mydir=/home/satori
+if [ -d "$mydir" ]
+then
+echo "The $mydir directory exists"
+cd $mydir
+ls
+else
+echo "The $mydir directory does not exist"
+fi
+
+echo ""
+#-------------------------------------------------------------------------------------------------------------------
