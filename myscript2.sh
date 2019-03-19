@@ -1,14 +1,51 @@
 #!/bin/bash
+
 set -e
-mycomputer="Scorpio"
-myOS=`uname -a`
 
-echo "This script name is $0"
-echo "Privet $1"
-echo "Hello $2"
+#-------------------------------------------------------------------------------------------------------------------
 
-num1=19
-num2=79
-summa=$((num1+num2))
+for var in first second third fourth fifth
+do
+echo The $var item
+done
 
-echo "$num1 + $num2 = $summa"
+#-------------------------------------------------------------------------------------------------------------------
+
+for var in "the first" "the second" "the third" "the fourth" fifth "I'll do it"
+do
+echo It is: $var item
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+
+file="myfile"
+for var in $(cat $file)
+do
+echo " $var " 
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+
+file="/etc/passwd"
+IFS=$'\n'
+for var in $(cat $file)
+do
+echo " $var"
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+
+for file in /home/satori/*
+do
+if [ -d "$file" ]
+then
+echo "$file is a directory"
+elif [ -f "$file" ]
+then
+echo "$file is a file"
+fi
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+
+
