@@ -104,12 +104,23 @@ done
 echo " #26 'controlling the loop to WHILE with break command'"
 
 val=1
-while [ $val -lt 5 ]; do
+while [ $val -lt 5 ]; do # Check if number less than 5
   if [ $val -eq 4 ]; then # Check number value
       break # The Code Breaks here <==
   fi
   echo "Iteration: $val" # The Printed Message
   val=$(($val + 1))
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+echo " #27 'controlling the loop to FOR with 'continue' command'"
+
+# The loop starts here
+for ((number = 1; number < 10; number++)); do
+  if [ $number -gt 0 ] && [ $number -lt 5 ]; then # Check if number greater than 0 and less than 5
+      continue
+  fi
+  echo "Iteration number: $number" # The printed message
 done
 
 #-------------------------------------------------------------------------------------------------------------------
