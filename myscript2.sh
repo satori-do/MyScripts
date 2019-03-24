@@ -91,13 +91,25 @@ for text in $(cat /etc/passwd); do
 done
 
 #-------------------------------------------------------------------------------------------------------------------
-echo " #25 'controlling the loop with break command'"
+echo " #25 'controlling the loop to FOR with break command'"
 
 for number in 10 11 12 13 14 15; do
   if [ $number -eq 14 ]; then
       break
   fi
   echo "Number: $number"
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+echo " #26 'controlling the loop to WHILE with break command'"
+
+val=1
+while [ $val -lt 5 ]; do
+  if [ $val -eq 4 ]; then # Check number value
+      break # The Code Breaks here <==
+  fi
+  echo "Iteration: $val" # The Printed Message
+  val=$(($val + 1))
 done
 
 #-------------------------------------------------------------------------------------------------------------------
