@@ -2,6 +2,7 @@
 
 set -e
 
+echo "Examples of using 'FOR' and 'WHILE' loops:"
 #-------------------------------------------------------------------------------------------------------------------
 echo " #16 'iterating over simple values'"
 
