@@ -1,5 +1,4 @@
 #!/bin/bash
-#------------------------------------------------------------------------------------------------------------------
 
 set -e
 
@@ -102,7 +101,7 @@ for number in 10 11 12 13 14 15; do
 done
 
 #-------------------------------------------------------------------------------------------------------------------
-echo " #26 'controlling the loop to WHILE with break command'"
+echo " #26 'controlling the loop to WHILE with 'break' command'"
 
 val=1
 while [ $val -lt 5 ]; do # Check if number less than 5
@@ -122,6 +121,27 @@ for ((number = 1; number < 10; number++)); do
       continue
   fi
   echo "Iteration number: $number" # The printed message
+done
+
+#-------------------------------------------------------------------------------------------------------------------
+echo " #28 'redirecting on file the loop output with 'done''"
+
+for ((var = 1; var < 10; var++)); do
+  echo "Number is $var"
+done >myfile.txt
+echo "finished."
+
+#-------------------------------------------------------------------------------------------------------------------
+echo " #29 'finding executable files'"
+
+IFS=:
+for dir in $PATH; do
+  echo "$dir:"
+  for myfile in $dir/*; do
+      if [ -x $myfile ]; then
+          echo " $myfile"
+      fi
+  done
 done
 
 #-------------------------------------------------------------------------------------------------------------------
