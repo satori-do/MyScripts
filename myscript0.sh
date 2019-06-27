@@ -1,36 +1,48 @@
 #!/bin/bash
 
-echo "Please input second number of month:"
+set -e
+
+function days_of_month() {
+currentmonth=$(date +%B)
+# m=$(date +%m)
+year=$(date +%Y)
+
+case $m in
+    0[13578]|10|12) days=31;;
+    0[469]|11)	    days=30;;
+    *)	(( year % 400 )) && days=29 || days=28
+esac
+
+echo "$m has $days days"
+
+# echo $days
+}
+
+echo "Please input number of month:"
 
 read m
 
-for (( i=1; i <= 9; i++  ))
-do
-touch -a -m -t 20190${m}0${i}2359.09 2019-0${m}-0${i}.log
-if [ ${i}==9 ]; then
-touch -a -m -t 20190${m}102359.09 2019-0${m}-10.log
-fi
-done
+if [ $(printf $m | wc -c) -eq 1 ]; then m="0${m}"; fi
+echo ${m}
+echo $(days_of_month ${m})
+# echo $(days_of_month)
 
-for (( i=1; i <= 9; i++  ))
-do
-touch -a -m -t 20190${m}1${i}2359.09 2019-0${m}-1${i}.log
-if [ ${i}==9 ]; then
-touch -a -m -t 20190${m}202359.09 2019-0${m}-20.log
-fi
-done
-
-for (( i=1; i <= 9; i++  ))
-do
-touch -a -m -t 20190${m}2${i}2359.09 2019-0${m}-2${i}.log
-if [ ${i}==9 ]; then
-touch -a -m -t 20190${m}302359.09 2019-0${m}-30.log
-fi
-done
-
-if [ $m -eq $((m/2*2)) ]; then
- echo "Logs for month #0${m} were generated successfully!"
-else
- touch -a -m -t 20190${m}312359.09 2019-0${m}-31.log
- echo "Logs for month #0${m} were generated successfully!"
-fi
+# if  [ ${m} -lt 10  ]; then
+#   for (( i=1; i <= $(days_of_month ${m}); i++  ))
+#   do
+#     if [ ${i} -lt 10  ]; then
+#       touch -a -m -t 20190${m}0${i}2359.09 2019-0${m}-0${i}.log
+#     else
+#       touch -a -m -t 20190${m}${i}2359.09 2019-0${m}-${i}.log
+#     fi
+#   done
+# else
+#   for (( i=1; i <= $(days_of_month ${m}); i++  ))
+#   do
+#     if [ ${i} -lt 10  ]; then
+#       touch -a -m -t 2019${m}0${i}2359.09 2019-${m}-0${i}.log
+#     else
+#       touch -a -m -t 2019${m}${i}2359.09 2019-${m}-${i}.log
+#     fi
+#   done
+# fi
