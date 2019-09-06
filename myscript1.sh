@@ -12,4 +12,8 @@ mesg
 echo "[Checking any logged user message status:]"
 who -T
 
+echo "[Monitoring disk space:]"
+du -s /var/log/
+du -S /var/log/
+du -S /var/log/ | sort -rn
 echo "*"
